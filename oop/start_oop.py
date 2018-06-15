@@ -31,6 +31,11 @@ class ThirdClass(SecondClass):
         self.data = data
 
     def __add__(self, other):
+        """
+        todo: 注意一点：不一定非要叫 self ; 名称不重要，终于的是位置(第一个参数)
+        :param other:
+        :return:
+        """
         return ThirdClass(self.data + other)
 
     def __str__(self):
@@ -39,6 +44,36 @@ class ThirdClass(SecondClass):
     def mul(self, other):
         self.data *= other
 
+    def try_some(this):
+        pass
+
+
+class Empty:
+    pass
+
+
+class OneAttr:
+    age = 66
+
 
 if "__main__" == __name__:
+    Empty.name = 'bob'
+    x = Empty()
+    y = Empty()
+
+    print(Empty.name, x.name, y.name)
+    x.name = 'ANN'
+    print(Empty.name, x.name, y.name)
+    print("================================")
+
+    a = OneAttr()
+    b = OneAttr()
+
+    print(OneAttr.age, a.age, b.age)
+    a.age += 100
+    print(OneAttr.age, a.age, b.age)
+    OneAttr.age = 18
+    print(OneAttr.age, a.age, b.age)
+
+    print(a.__class__, ThirdClass.__bases__)
     pass
