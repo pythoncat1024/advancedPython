@@ -11,17 +11,16 @@
                    2018/6/15:
 -------------------------------------------------
 """
+from oop.more.classtools import AttrDisplay
 
 
-class Person:
+class Person(AttrDisplay):
     def __init__(self, name, job=None, pay=0):
         self.name = name
         self.job = job
         self.pay = pay
         pass
 
-    def __str__(self) -> str:
-        return "Person:(name={},job={},pay={})".format(self.name, self.job, self.pay)
 
     def giveRaise(self, percent):
         self.pay *= (1 + percent)
@@ -87,7 +86,19 @@ class Department:
         print("]")
 
 
-if "__main__" == __name__:
+class A(AttrDisplay):
+    def __init__(self):
+        self.name = 'Apple'
+        self.age = 19
+
+
+class B(AttrDisplay):
+    def __init__(self):
+        self.gender = 'female'
+        self.friends = ['tom', 'jim', 'candy', 'stone', 'rose']
+
+
+if __name__ == "__main__":
     bob = Person('bob')
     tom = Person('tom', pay=66, job='writer')
 
@@ -110,4 +121,11 @@ if "__main__" == __name__:
     dep.showMembers()
     dep.giveRaise(0.1)
     dep.showMembers()
+
+    print(">>>>>>>>>>>>>>><<<<<<<<<<<<<")
+
+    a = A()
+    b = B()
+
+    print(a, b, sep='\n')
     pass
