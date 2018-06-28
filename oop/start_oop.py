@@ -32,7 +32,7 @@ class ThirdClass(SecondClass):
 
     def __add__(self, other):
         """
-        todo: 注意一点：不一定非要叫 self ; 名称不重要，终于的是位置(第一个参数)
+        todo: 注意一点：不一定非要叫 self ; 名称不重要，重要的是位置(第一个参数)
         :param other:
         :return:
         """
@@ -56,7 +56,17 @@ class OneAttr:
     age = 66
 
 
-if "__main__" == __name__:
+class MixedNames:
+    data = 'spam'
+
+    def __init__(self, value):
+        self.data = value
+
+    def display(self):
+        print(self.data, MixedNames.data)
+
+
+if __name__ == '__main__':
     Empty.name = 'bob'
     x = Empty()
     y = Empty()
@@ -77,3 +87,7 @@ if "__main__" == __name__:
 
     print(a.__class__, ThirdClass.__bases__)
     pass
+
+    mn = MixedNames('tom')
+    mn.display()
+    MixedNames.display(mn)  # 与 mn.display() 等效
