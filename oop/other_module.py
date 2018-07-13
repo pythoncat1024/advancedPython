@@ -18,4 +18,10 @@ if "__main__" == __name__:
     fc = FirstClass()
     fc.set_data(29.8)
     fc.display()
+
+    cc = {1, 2, 3, 4}
+    dd = {4, 5, 6, 7}
+
+    print('common:', cc.intersection(dd))
+    print('all:', cc+dd)
     pass
