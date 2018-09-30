@@ -18,7 +18,7 @@ class Number:
         self.data = start
 
     def __sub__(self, other):
-        '- 运算符重载'
+        """- 运算符重载"""
         return Number(self.data - other)
 
 
@@ -35,7 +35,7 @@ class Totoro:
     data = [2, 3, 4, 5, 6, 7]
 
     def __getitem__(self, item):
-        "todo: 这里的 item 并不是数字，而是 一个 slice(2,4,None) 的 对象"
+        """todo: 这里的 item 并不是数字，而是 一个 slice(2,4,None) 的 对象"""
         print("totoro:", item)  # totoro: slice(2, 4, None)
         return self.data[item]
 
@@ -67,4 +67,4 @@ if __name__ == "__main__":
     tt[5] = 13
     print(tt[3:6])
 
-    print(list(tt),tuple(tt),5 in tt ) # 这些操作能做，全是因为 实现了 __getitem__()
+    print(list(tt), tuple(tt), 5 in tt)  # 这些操作能做，全是因为 实现了 __getitem__()

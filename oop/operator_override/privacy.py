@@ -13,7 +13,8 @@
 """
 
 
-class PrivacyException(Exception): pass
+class PrivacyException(Exception):
+    pass
 
 
 class Privacy:
@@ -37,8 +38,8 @@ class Test2(Privacy):
 if __name__ == "__main__":
     t1 = Test1()
 
-    t1.email='py@qq.com' # ok
-    t1.name = 'stone' # error
+    t1.email = 'py@qq.com'  # ok
+    t1.name = 'stone'  # error
 
     t2 = Test2()
     # print(t2.age)

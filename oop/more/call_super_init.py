@@ -28,5 +28,4 @@ class Sub(Origin):
 
 if __name__ == "__main__":
     s = Sub()
-
     pass
