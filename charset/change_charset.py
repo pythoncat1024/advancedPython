@@ -7,8 +7,8 @@
 # @exec   : python3 charset/change_charset.py ~/Downloads/android架构师/android\ 架构师\ 1-100/
 
 import os
-import zipfile
 import sys
+import zipfile
 
 
 def get_dir_path():

@@ -28,6 +28,9 @@ class Sub(Super):
     def method(self):
         print("in Sub.method")
 
+    def __str__(self) -> str:
+        return super().__str__()
+
 
 if __name__ == "__main__":
     s = Sub()
