@@ -107,11 +107,13 @@ class PrintColor:
 
 
 if __name__ == '__main__':
+    import os
+
     PrintColor.red("xxxx", "1234", sep=" ")
 
-    PrintColor.normal([1, 2, 3, 4], (1, 2, 3, 4))
-    PrintColor.good([1, 2, 3, 4], (1, 2, 3, 4))
+    PrintColor.normal(os.listdir(os.getcwd()))
 
     data = {"name": "tom", "password": "xsd23343df13x.as2", "email": "tom@gmail.com"}
     today = [1, 2, 3]
     PrintColor.yellow(data, today, sep=" , ")
+    PrintColor.good([1, 2, 3, 4], (1, 2, 3, 4), os.listdir(os.getcwd()), data)

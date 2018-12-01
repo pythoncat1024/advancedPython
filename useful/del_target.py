@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 <a href="https://www.jetbrains.com/help/pycharm/file-template-variables.html">File Template Variables</a>
-@project:    advancedPython 
+@project:    advancedPython
 @name:       x
 @author:     cat
-@date:       2018/11/24 18:42       
-@product:    PyCharm 
+@date:       2018/11/24 18:42
+@product:    PyCharm
 """
 from collections import Iterable
 
@@ -180,7 +180,8 @@ def do_exec():
     target_result = ""
     PrintColor.good("input:", str(sys.argv[1:]))
     if len(sys.argv) == 1:
-        PrintColor.good("请输入指定文件夹路径以及要批量删除的文件后缀名，并重新执行该程序！!")
+        PrintColor.red("请输入指定文件夹路径以及要批量删除的文件后缀名，并重新执行该程序！!")
+        exit(-1)
     elif len(sys.argv) == 2:
         if os.path.exists(sys.argv[1]):
             target_result = find_target(sys.argv[1])
@@ -199,7 +200,14 @@ def do_exec():
     print("\n======== start ==========")
     PrintColor.good("将要删除的文件:", target_result)
     print("========= end ===========")
-    del_target(target_result)
+    s = input("是否删除以上文件？[y/n]\t:")
+    if "y".upper() == s.upper():
+        del_target(target_result)
+        PrintColor.yellow("delete success !")
+    else:
+        PrintColor.yellow("如你所愿，并没有执行删除: ")
+        os.system("ls -l {} | grep {}".format(sys.argv[1], "torrent" if not len(sys.argv) > 2 else sys.argv[2]))
+    # del_target(target_result)
 
 
 if __name__ == '__main__':
